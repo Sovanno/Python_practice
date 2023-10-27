@@ -1,3 +1,4 @@
+import numpy as np
 import math
 import scipy as sp
 import sympy as sym
@@ -20,7 +21,7 @@ def f(x):
     return (2 / math.tan(x))
 
 def task1():
-    return sp.misc.derivative(f, 1, n=1, dx=1e-6), sp.misc.derivative(f, 1, n=2, dx=1e-6)
+    return sp.misc.derivative(f, 1, n=1, dx=0.1), sp.misc.derivative(f, 1, n=2, dx=0.1)
 
 def task2():
     return sym.diff(2/sym.tan(x))
@@ -31,7 +32,20 @@ def task3():
 def task4():
     return sym.integrate(2/sym.tan(x))
 
-def task5():
+def func(x):
+    return (x[0]-1.5)**2 + (x[1]-2)**2 + (x[2]-2.5)**2
 
+def constraint1(x):
+    return 2*x[0] + 2*x[1] - 6
+
+def constraint2(x):
+    return 2*x[0] + 2*x[2] - 17
+
+def task5():
+    x0 = [0, 0, 0]
+    constraints = [{'type': 'eq', 'fun': constraint1}, {'type': 'eq', 'fun': constraint2}]
+    bounds = [(0, None), (0, None), (0, None)]  # Все переменные неотрицательны
+    result = sp.optimize.minimize(func, x0, bounds=bounds, constraints=constraints)
+    return result
 
 conclusion()
