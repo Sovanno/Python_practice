@@ -4,26 +4,26 @@ from mpl_toolkits.mplot3d import Axes3D
 
 def conclusion():
     print("--------------Task 1--------------")
-    #print(task1()[0])
+    print(task1()[0])
     print("--------------Task 2--------------")
-    #print(task2(values, points)[0])
+    print(task2(values, points)[0])
     print("--------------Task 3--------------")
-    #print(task3(values, points)[0])
+    print(task3(values, points)[0])
     print("--------------Task 4--------------")
-    #print(task4())
+    print(task4())
     print("--------------Task 5--------------")
-    #print(task5()[0])
+    print(task5()[0])
     print("--------------Task 6--------------")
-    #print(task6(points)[0])
+    print(task6(points)[0])
     print("--------------Task 7--------------")
-    #print(task7(values, points))
+    print(task7(values, points))
     print("--------------Task 8--------------")
     print(task8_ggplot(values, points))
     print(task8_fivethirtyeight(values, points))
     print(task8_dark_background(values, points))
 
 def task1():
-    points = np.linspace(4, 6, 10)
+    points = np.linspace(4, 6, 20)
     values = 2 / np.tan(points)
     return values, points
 
@@ -43,7 +43,7 @@ def task3(values, points):
     plt.title('Точечный график функции (2 / tan(x))')
     plt.xlabel('x')
     plt.ylabel('y')
-    plt.grid(color=(0.8, 0.5, 0.2, 0.3))
+    plt.grid(color=(0.8, 0.5, 0.2, 0.3), alpha=0.1)
     plt.show()
     return "работает", plt
 
@@ -145,7 +145,7 @@ def task8_ggplot(values, points):
     colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red']
     X, Y = np.meshgrid(points, points)
     Z = (X - 1.5) ** 2 + (Y - 2) ** 2
-    plt.suptitle('Сетка 2x2 из 4 графиков', fontsize=16)
+    plt.suptitle('Сетка 2x2 из 4 графиков (ggplot)', fontsize=16)
     plt.tight_layout()
     #---------------------------------------------
     plt.style.use('ggplot')
@@ -182,7 +182,7 @@ def task8_fivethirtyeight(values, points):
     colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red']
     X, Y = np.meshgrid(points, points)
     Z = (X - 1.5) ** 2 + (Y - 2) ** 2
-    plt.suptitle('Сетка 2x2 из 4 графиков', fontsize=16)
+    plt.suptitle('Сетка 2x2 из 4 графиков (fivethirtyeight)', fontsize=16)
     plt.tight_layout()
     #-------------------------------------------------
     plt.style.use('fivethirtyeight')
@@ -219,7 +219,7 @@ def task8_dark_background(values, points):
     colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red']
     X, Y = np.meshgrid(points, points)
     Z = (X - 1.5) ** 2 + (Y - 2) ** 2
-    plt.suptitle('Сетка 2x2 из 4 графиков', fontsize=16)
+    plt.suptitle('Сетка 2x2 из 4 графиков (dark_background)', fontsize=16)
     plt.tight_layout()
     #---------------------------------------------------------------------
     plt.style.use('dark_background')
