@@ -49,8 +49,6 @@ def task3(matrix, P, L, U):
     prod_diag_LU = np.prod(np.diag(L)) * np.prod(np.diag(U))
     print(prod_diag_LU)
 
-#A1 = task3(A)
-
 def task4():
     uniform_sample = np.random.randint(low=0, high=100, size=100)
     normal_sample = np.random.normal(loc=50, scale=10, size=100).astype(int)
